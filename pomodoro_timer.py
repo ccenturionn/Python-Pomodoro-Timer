@@ -49,9 +49,7 @@ def setBreak():
     print("Length of break set to", breakLength)
 
 #Main menu presents the options to the user
-def mainMenu():
-    defaultTime = True
-    defaultBreak = True
+def mainMenu(defaultTime, defaultBreak, timeLength, breakLength):
     while 1:
         os.system('clear')
         print("1. Start the timer")
@@ -62,7 +60,7 @@ def mainMenu():
             userInput = int(input("What option would you like to pick? "))
         except ValueError:
             print("Invalid Input")
-            return(mainMenu())
+            return(mainMenu(defaultTime, defaultBreak, timeLength, breakLength))
         if userInput == 1:
             if defaultTime == True:
                 timeLength = 1500
@@ -79,5 +77,4 @@ def mainMenu():
             print("Invalid Option")
             return(mainMenu())
 
-
-mainMenu()
+mainMenu(True, True, 0, 0)
